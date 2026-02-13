@@ -5,10 +5,10 @@ const config: CapacitorConfig = {
   // UNIQUE App ID for the Admin build. 
   // IMPORTANT: For User app, use 'com.barberpro.user'
   // For Admin app, use 'com.barberpro.admin'
-  appId: 'com.barberpro.admin', 
+  appId: 'com.Razor's Edge Ltd.admin', 
   
   // Yahan jo naam likhenge, wahi mobile ki home screen pe icon ke neechy nazar ayega
-  appName: 'Admin Pannel', 
+  appName: 'Rezor's Admin Pannel', 
   
   webDir: 'dist',
   server: {
