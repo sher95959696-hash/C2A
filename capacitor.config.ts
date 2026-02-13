@@ -8,7 +8,7 @@ const config: CapacitorConfig = {
   appId: 'com.RazorsEdgeLtd.admin', 
   
   // Yahan jo naam likhenge, wahi mobile ki home screen pe icon ke neechy nazar ayega
-  appName: 'Rezor's Admin Pannel', 
+  appName: "Rezor's Admin Pannel", 
   
   webDir: 'dist',
   server: {
