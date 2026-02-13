@@ -6,19 +6,18 @@ import { getMessaging, getToken } from "firebase/messaging";
  * ✅ FIREBASE CONFIGURATION
  */
 const firebaseConfig = {
-  apiKey: "AIzaSyC1LZEoRcctG9prkgUemsaQtdn30oSYInk",
-  authDomain: "barber-app-fbf5c.firebaseapp.com",
-  projectId: "barber-app-fbf5c",
-  storageBucket: "barber-app-fbf5c.firebasestorage.app",
-  messagingSenderId: "392401169789",
-  appId: "1:392401169789:web:846975298f62e7cb683014",
-  measurementId: "G-T3BGNZ979J"
+  apiKey: "AIzaSyDWyNyDSVc1CAlW7aGQ7kR3be8LBd3ls5I",
+  authDomain: "rezor-s-edge.firebaseapp.com",
+  projectId: "rezor-s-edge",
+  storageBucket: "rezor-s-edge.firebasestorage.app",
+  messagingSenderId: "555584318054",
+  appId: "1:555584318054:web:56f6e2c5787551c2299ba7"
 };
 
 /**
  * ✅ WEB PUSH VAPID KEY
  */
-export const VAPID_KEY = "BM3GGUTVTnYeI37YoUIPzl_wOoqVna6hGsfRO2VrZ3gIKuEU6vcpaCivqsGKvnqNeyPGgsrTmD1v9_IP_QIRW4gBORooIlxMRrsxd2v7yr5ZBAM3JhAHA_ZTNthHZhEoZLMrrZx2h4PEgUEMjFXrrroKONiyDIVNomSDwnhSnaAa-c";
+export const VAPID_KEY = "BBPRHuNoDBtF9jBru7JkfEb6FpNk3dumjqM3exNoma9xwSRPOYIF9vnKfXYt1CGuSZSOLi1dzw-VOdE5hAqQ-BU";
 
 export const isFirebaseConfigured = () => {
   return firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("YOUR_");
