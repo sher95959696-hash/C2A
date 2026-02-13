@@ -1,0 +1,61 @@
+name: Build Android App
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install --no-package-lock
+
+      - name: Build Web Project
+        run: npm run build
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Initialize Android Platform
+        run: |
+          npx cap add android || true
+
+      - name: Generate and Sync App Icons
+        run: |
+          if [ -f "icon.png" ]; then
+            echo "✅ icon.png found. Preparing assets..."
+            mkdir -p assets
+            cp icon.png assets/icon.png
+            # Standard generate command looks into assets/ folder
+            npx @capacitor/assets generate --android
+          else
+            echo "⚠️ icon.png not found. Skipping icon generation."
+          fi
+
+      - name: Capacitor Sync and Build
+        run: |
+          npx cap sync android
+          cd android && ./gradlew assembleDebug && ./gradlew bundleRelease
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Upload AAB (Production)
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-aab
+          path: android/app/build/outputs/bundle/release/app-release.aab
